@@ -9,13 +9,19 @@ class NewsfeedUI extends StatefulWidget {
 }
 
 class _NewsfeedUIState extends State<NewsfeedUI> {
-  ScrollController _scrollController = ScrollController();
-
   Widget ListofStories(BuildContext context, int index) {
     return Stack(
       children: [
-        Image.asset('${contents[index].image}'),
-        Text("${contents[index].name}")
+        Align(
+            alignment: Alignment.center,
+            child: Image.asset('${contents[index].image}')),
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: Text("${contents[index].name}",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                )))
       ],
     );
   }
@@ -40,36 +46,71 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
               ),
               Expanded(
                 flex: 4,
-                child: TextFormField(
-                    readOnly: true,
-                    onTap: () {},
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25.0),
-                      ),
-                      fillColor: Colors.black,
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 05.0, horizontal: 5.0),
-                      hintStyle: TextStyle(color: Colors.grey[800]),
-                      hintText: "Search",
-                    )),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
+                  child: TextFormField(
+                      readOnly: true,
+                      onTap: () {},
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                        fillColor: Colors.black,
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 05.0, horizontal: 5.0),
+                        hintStyle: TextStyle(color: Colors.grey[800]),
+                        hintText: "Search",
+                      )),
+                ),
               )
             ],
           ),
-          Container(
-            child: ListView.builder(
-              controller: _scrollController,
-              // scrollDirection: Axis.horizontal,
-              itemCount: contents.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Container(
-                    height: height * 0.2,
-                    width: width * 0.3,
-                    child: ListofStories(context, index));
-              },
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.video_camera_back,
+                    color: Colors.red,
+                  ),
+                  label: Text('Live')),
+              TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.photo,
+                    color: Colors.green,
+                  ),
+                  label: Text('Photos')),
+              TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.video_call,
+                    color: Colors.purple,
+                  ),
+                  label: Text('Room')),
+            ],
           ),
+          SizedBox(
+            height: height * 0.25,
+            child: ListView.builder(
+              itemCount: contents.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Container(
+                  height: height * 0.25,
+                  width: width * 0.25,
+                  margin: EdgeInsets.all(5),
+                  // color: Colors.grey,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          border: Border.all(
+                            color: Colors.grey,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: ListofStories(context, index))),
+            ),
+          )
         ],
       ),
     );

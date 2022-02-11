@@ -7,12 +7,16 @@ class StoryContents {
 
 List<StoryContents> contents = [
   StoryContents(
+    name: 'Create Story',
+    image: 'image1.jpg',
+  ),
+  StoryContents(
     name: 'Ram Chapagain',
     image: 'image1.jpg',
   ),
   StoryContents(
     name: 'Sagar Karki',
-    image: 'image2.jpg',
+    image: 'image.png',
   ),
   StoryContents(
     name: 'Rupesh Shrestha',
@@ -20,6 +24,6 @@ List<StoryContents> contents = [
   ),
   StoryContents(
     name: 'Kushal Rajbhandari',
-    image: 'image2.jpg',
+    image: 'image.png',
   ),
 ];
