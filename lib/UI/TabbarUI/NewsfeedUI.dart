@@ -143,7 +143,7 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 05.0, horizontal: 5.0),
                             hintStyle: TextStyle(color: Colors.grey[800]),
-                            hintText: "Search",
+                            hintText: "Whats on your mind ?",
                           )),
                     ),
                   )
