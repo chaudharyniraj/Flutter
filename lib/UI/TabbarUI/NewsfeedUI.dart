@@ -56,11 +56,11 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
             TextButton.icon(
                 onPressed: () {},
                 icon: Icon(Icons.thumb_up),
-                label: Text('13K')),
+                label: Text('${newsfeedContents[index].comments}')),
             TextButton.icon(
                 onPressed: () {},
                 icon: Icon(Icons.message),
-                label: Text('34 K')),
+                label: Text('${newsfeedContents[index].likes}')),
           ],
         ),
         Row(
