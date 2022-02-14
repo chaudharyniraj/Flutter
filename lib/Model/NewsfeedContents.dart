@@ -16,12 +16,12 @@ List<NewsfeedContents> newsfeedContents = [
       profileImage: 'profile.png',
       name: 'Niraj Chaudhary',
       image: 'profile.png',
-      caption: 'Hello i am caption'),
+      caption: ''),
   NewsfeedContents(
     profileImage: 'profile.png',
     name: 'Ram Chapagain',
     image: 'image1.jpg',
-    caption: '',
+    caption: 'Smarat',
   ),
   NewsfeedContents(
     name: 'Sagar Karki',

@@ -143,7 +143,7 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                             contentPadding: const EdgeInsets.symmetric(
                                 vertical: 05.0, horizontal: 5.0),
                             hintStyle: TextStyle(color: Colors.grey[800]),
-                            hintText: "Whats on your mind ?",
+                            hintText: "Whats on your mind ? ",
                           )),
                     ),
                   )
@@ -197,14 +197,13 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                         child: ListofStories(context, index))),
               ),
             ),
-            SizedBox(
-              height: height,
-              child: ListView.builder(
-                itemCount: newsfeedContents.length,
-                // scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) => Container(
-                    child: ListofNewsFeed(context, index, width, height)),
-              ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: newsfeedContents.length,
+              // scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) => Container(
+                  child: ListofNewsFeed(context, index, width, height)),
             ),
           ],
         ),
