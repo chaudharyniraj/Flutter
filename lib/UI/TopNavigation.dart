@@ -35,7 +35,6 @@ class _TopNavigationState extends State<TopNavigation>
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -74,6 +73,9 @@ class _TopNavigationState extends State<TopNavigation>
           controller: _controller,
           isScrollable: true,
           indicatorSize: TabBarIndicatorSize.label,
+          padding: EdgeInsets.zero,
+          // indicatorPadding: EdgeInsets.zero,
+          labelPadding: EdgeInsets.symmetric(horizontal: width * 0.05),
           tabs: [
             Tab(icon: Icon(Icons.home)),
             Tab(icon: Icon(Icons.watch)),
