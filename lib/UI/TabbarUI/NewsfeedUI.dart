@@ -1,5 +1,6 @@
 import 'package:fb_design/Model/NewsfeedContents.dart';
 import 'package:fb_design/Model/StoryContents.dart';
+import 'package:fb_design/UI/GeneralUI/PostUI.dart';
 import 'package:flutter/material.dart';
 
 class NewsfeedUI extends StatefulWidget {
@@ -108,6 +109,18 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -134,14 +147,20 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
                       child: TextFormField(
                           readOnly: true,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const PostUI()),
+                            );
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(25.0),
                             ),
                             fillColor: Colors.black,
                             contentPadding: const EdgeInsets.symmetric(
-                                vertical: 05.0, horizontal: 5.0),
+                                vertical: 5.0, horizontal: 5.0),
                             hintStyle: TextStyle(color: Colors.grey[800]),
                             hintText: "Whats on your mind ? ",
                           )),

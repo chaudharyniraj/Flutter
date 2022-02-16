@@ -1,3 +1,4 @@
+import 'package:fb_design/UI/GeneralUI/SearchUI.dart';
 import 'package:fb_design/UI/TabbarUI/FlagUI.dart';
 import 'package:fb_design/UI/TabbarUI/GamingUI.dart';
 import 'package:fb_design/UI/TabbarUI/MenuUI.dart';
@@ -51,7 +52,12 @@ class _TopNavigationState extends State<TopNavigation>
                   icon: Icon(
                     Icons.search,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SearchUI()),
+                    );
+                  },
                 )),
           ),
           Padding(
