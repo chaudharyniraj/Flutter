@@ -5,6 +5,8 @@ import 'package:fb_design/UI/TabbarUI/MenuUI.dart';
 import 'package:fb_design/UI/TabbarUI/NewsfeedUI.dart';
 import 'package:fb_design/UI/TabbarUI/NotificationUI.dart';
 import 'package:fb_design/UI/TabbarUI/WatchUI.dart';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class TopNavigation extends StatefulWidget {
@@ -40,7 +42,13 @@ class _TopNavigationState extends State<TopNavigation>
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Facebook'),
+        title: AnimatedTextKit(
+          animatedTexts: [
+            WavyAnimatedText('Facebook'),
+          ],
+          isRepeatingAnimation: true,
+          repeatForever: true,
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
