@@ -1,6 +1,8 @@
 import 'package:fb_design/Model/NewsfeedContents.dart';
+import 'package:fb_design/Model/StoryArguments.dart';
 import 'package:fb_design/Model/StoryContents.dart';
 import 'package:fb_design/UI/GeneralUI/PostUI.dart';
+import 'package:fb_design/UI/GeneralUI/StoryUI.dart';
 import 'package:flutter/material.dart';
 
 class NewsfeedUI extends StatefulWidget {
@@ -96,7 +98,14 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
       children: [
         Align(
             alignment: Alignment.center,
-            child: Image.asset('${contents[index].image}')),
+            child: GestureDetector(
+              child: Image.asset('${contents[index].image}'),
+              onTap: () {
+                Navigator.pushNamed(context, '/storyUI',
+                    arguments: StoryArguments(
+                        '${contents[index].name}', '${contents[index].image}'));
+              },
+            )),
         Align(
             alignment: Alignment.bottomCenter,
             child: Text("${contents[index].name}",

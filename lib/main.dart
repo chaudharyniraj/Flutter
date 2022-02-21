@@ -1,3 +1,4 @@
+import 'package:fb_design/UI/GeneralUI/StoryUI.dart';
 import 'package:fb_design/UI/TopNavigation.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const TopNavigation(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        debugShowCheckedModeBanner: false,
+        // home: const TopNavigation(),
+        initialRoute: '/topNavigation',
+        routes: {
+          '/topNavigation': (context) => TopNavigation(),
+          '/storyUI': (context) => StoryUI(),
+        });
   }
 }
