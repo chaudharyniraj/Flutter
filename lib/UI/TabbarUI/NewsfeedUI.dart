@@ -109,7 +109,7 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
         Align(
             alignment: Alignment.bottomCenter,
             child: Text("${contents[index].name}",
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 )))
