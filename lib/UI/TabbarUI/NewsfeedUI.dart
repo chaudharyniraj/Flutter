@@ -1,4 +1,5 @@
 import 'package:fb_design/Model/NewsfeedContents.dart';
+import 'package:fb_design/Model/PostArguments.dart';
 import 'package:fb_design/Model/StoryArguments.dart';
 import 'package:fb_design/Model/StoryContents.dart';
 import 'package:fb_design/UI/GeneralUI/PostUI.dart';
@@ -50,9 +51,21 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                 style: TextStyle(),
               ),
             )),
-        Container(
-            height: height * 0.3,
-            child: Image.asset('${newsfeedContents[index].image}')),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/displayPostUI',
+                arguments: PostArguments(
+                    '${newsfeedContents[index].profileImage}',
+                    '${newsfeedContents[index].name}',
+                    '${newsfeedContents[index].image}',
+                    '${newsfeedContents[index].caption}',
+                    '${newsfeedContents[index].likes}',
+                    '${newsfeedContents[index].comments}'));
+          },
+          child: Container(
+              height: height * 0.3,
+              child: Image.asset('${newsfeedContents[index].image}')),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

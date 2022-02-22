@@ -54,8 +54,8 @@ class _TopNavigationState extends State<TopNavigation>
             padding: const EdgeInsets.all(10.0),
             child: Container(
                 width: width * 0.1,
-                decoration:
-                    BoxDecoration(color: Colors.amber, shape: BoxShape.circle),
+                decoration: BoxDecoration(
+                    color: Colors.black12, shape: BoxShape.circle),
                 child: IconButton(
                   icon: Icon(
                     Icons.search,
@@ -73,7 +73,7 @@ class _TopNavigationState extends State<TopNavigation>
             child: Container(
               width: width * 0.1,
               decoration:
-                  BoxDecoration(color: Colors.amber, shape: BoxShape.circle),
+                  BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
               child: IconButton(
                 icon: Icon(
                   Icons.message_rounded,

@@ -5,6 +5,13 @@ class NewsfeedContents {
   String caption;
   String comments;
   String likes;
+  // NewsfeedContents(
+  //      this.name,
+  //      this.image,
+  //      this.profileImage,
+  //      this.caption,
+  //      this.comments,
+  //      this.likes);
 
   NewsfeedContents(
       {required this.name,

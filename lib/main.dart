@@ -1,3 +1,4 @@
+import 'package:fb_design/UI/GeneralUI/DisplayPostUI.dart';
 import 'package:fb_design/UI/GeneralUI/StoryUI.dart';
 import 'package:fb_design/UI/TopNavigation.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/topNavigation': (context) => TopNavigation(),
           '/storyUI': (context) => StoryUI(),
+          '/displayPostUI': (context) => DisplayPostUI(),
         });
   }
 }
