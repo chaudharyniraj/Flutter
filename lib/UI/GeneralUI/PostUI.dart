@@ -8,10 +8,6 @@ class PostUI extends StatefulWidget {
 }
 
 class _PostUIState extends State<PostUI> {
-// Widget showViewCategory(){
-//   return
-// }
-
   @override
   void initState() {
     // TODO: implement initState
@@ -112,13 +108,13 @@ class _PostUIState extends State<PostUI> {
                             // ),
                             TextButton.icon(
                               onPressed: () {},
-                              label: Text('Album'),
-                              icon: Icon(Icons.arrow_drop_down),
+                              label: const Text('Album'),
+                              icon: const Icon(Icons.arrow_drop_down),
                             ),
                             TextButton.icon(
                               onPressed: () {},
-                              label: Text('Text'),
-                              icon: Icon(Icons.arrow_drop_down),
+                              label: const Text('Text'),
+                              icon: const Icon(Icons.arrow_drop_down),
                             ),
                           ],
                         ),

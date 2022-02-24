@@ -49,38 +49,8 @@ class _TopNavigationState extends State<TopNavigation>
           repeatForever: true,
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-                width: width * 0.1,
-                decoration: const BoxDecoration(
-                    color: Colors.black12, shape: BoxShape.circle),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.search,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SearchUI()),
-                    );
-                  },
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              width: width * 0.1,
-              decoration: const BoxDecoration(
-                  color: Colors.black12, shape: BoxShape.circle),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.message_rounded,
-                ),
-                onPressed: () {},
-              ),
-            ),
-          )
+          message(context, width),
+          search(context, width),
         ],
         bottom: TabBar(
           controller: _controller,
@@ -109,6 +79,44 @@ class _TopNavigationState extends State<TopNavigation>
           NotificationUI(),
           MenuUI(),
         ],
+      ),
+    );
+  }
+
+  Widget search(context, width) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+          width: width * 0.1,
+          decoration: const BoxDecoration(
+              color: Colors.black12, shape: BoxShape.circle),
+          child: IconButton(
+            icon: const Icon(
+              Icons.search,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SearchUI()),
+              );
+            },
+          )),
+    );
+  }
+
+  Widget message(context, width) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        width: width * 0.1,
+        decoration:
+            const BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+        child: IconButton(
+          icon: const Icon(
+            Icons.message_rounded,
+          ),
+          onPressed: () {},
+        ),
       ),
     );
   }

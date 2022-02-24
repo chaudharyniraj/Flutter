@@ -33,7 +33,6 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
       child: Expanded(
         child: Column(
           children: [
-            // SizedBox(height: height * 0.01),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -46,81 +45,12 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                       height: width * 0.1,
                     ),
                   ),
-                  Expanded(
-                    flex: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
-                      child: TextFormField(
-                          readOnly: true,
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const PostUI()),
-                            );
-                          },
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                            fillColor: Colors.black,
-                            contentPadding: const EdgeInsets.symmetric(
-                                vertical: 5.0, horizontal: 5.0),
-                            hintStyle: TextStyle(color: Colors.grey[800]),
-                            hintText: "Whats on your mind ? ",
-                          )),
-                    ),
-                  )
+                  postField(context)
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TextButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.video_camera_back,
-                      color: Colors.red,
-                    ),
-                    label: const Text('Live')),
-                TextButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.photo,
-                      color: Colors.green,
-                    ),
-                    label: const Text('Photos')),
-                TextButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.video_call,
-                      color: Colors.purple,
-                    ),
-                    label: const Text('Room')),
-              ],
-            ),
-            SizedBox(
-              height: height * 0.25,
-              child: ListView.builder(
-                itemCount: contents.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Container(
-                    height: height * 0.25,
-                    width: width * 0.25,
-                    margin: const EdgeInsets.all(5),
-                    // color: Colors.grey,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey,
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(15))),
-                        child: listofStories(context, index))),
-              ),
-            ),
+            livePhotosRoom(context),
+            stories(context, width, height),
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -131,6 +61,85 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget stories(context, width, height) {
+    return SizedBox(
+      height: height * 0.25,
+      child: ListView.builder(
+        itemCount: contents.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => Container(
+            height: height * 0.25,
+            width: width * 0.25,
+            margin: const EdgeInsets.all(5),
+            // color: Colors.grey,
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
+                child: listofStories(context, index))),
+      ),
+    );
+  }
+
+  Widget livePhotosRoom(context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.video_camera_back,
+              color: Colors.red,
+            ),
+            label: const Text('Live')),
+        TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.photo,
+              color: Colors.green,
+            ),
+            label: const Text('Photos')),
+        TextButton.icon(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.video_call,
+              color: Colors.purple,
+            ),
+            label: const Text('Room')),
+      ],
+    );
+  }
+
+  Widget postField(context) {
+    return Expanded(
+      flex: 4,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 8.0),
+        child: TextFormField(
+            readOnly: true,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PostUI()),
+              );
+            },
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+              fillColor: Colors.black,
+              contentPadding:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
+              hintStyle: TextStyle(color: Colors.grey[800]),
+              hintText: "Whats on your mind ? ",
+            )),
       ),
     );
   }
