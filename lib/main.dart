@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
         // home: const TopNavigation(),
         initialRoute: '/topNavigation',
         routes: {
-          '/topNavigation': (context) => TopNavigation(),
-          '/storyUI': (context) => StoryUI(),
-          '/displayPostUI': (context) => DisplayPostUI(),
+          '/topNavigation': (context) => const TopNavigation(),
+          '/storyUI': (context) => const StoryUI(),
+          '/displayPostUI': (context) => const DisplayPostUI(),
         });
   }
 }

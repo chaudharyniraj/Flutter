@@ -79,25 +79,25 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
               children: [
                 TextButton.icon(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.video_camera_back,
                       color: Colors.red,
                     ),
-                    label: Text('Live')),
+                    label: const Text('Live')),
                 TextButton.icon(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.photo,
                       color: Colors.green,
                     ),
-                    label: Text('Photos')),
+                    label: const Text('Photos')),
                 TextButton.icon(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.video_call,
                       color: Colors.purple,
                     ),
-                    label: Text('Room')),
+                    label: const Text('Room')),
               ],
             ),
             SizedBox(

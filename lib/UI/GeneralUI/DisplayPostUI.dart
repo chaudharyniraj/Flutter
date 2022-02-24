@@ -13,6 +13,7 @@ class _DisplayPostUIState extends State<DisplayPostUI> {
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)!.settings.arguments as PostArguments;
+
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
@@ -32,7 +33,7 @@ class _DisplayPostUIState extends State<DisplayPostUI> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back)),
+                icon: const Icon(Icons.arrow_back)),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

@@ -5,7 +5,6 @@ import 'package:fb_design/UI/TabbarUI/MenuUI.dart';
 import 'package:fb_design/UI/TabbarUI/NewsfeedUI.dart';
 import 'package:fb_design/UI/TabbarUI/NotificationUI.dart';
 import 'package:fb_design/UI/TabbarUI/WatchUI.dart';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
@@ -54,10 +53,10 @@ class _TopNavigationState extends State<TopNavigation>
             padding: const EdgeInsets.all(10.0),
             child: Container(
                 width: width * 0.1,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.black12, shape: BoxShape.circle),
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search,
                   ),
                   onPressed: () {
@@ -72,10 +71,10 @@ class _TopNavigationState extends State<TopNavigation>
             padding: const EdgeInsets.all(10.0),
             child: Container(
               width: width * 0.1,
-              decoration:
-                  BoxDecoration(color: Colors.black12, shape: BoxShape.circle),
+              decoration: const BoxDecoration(
+                  color: Colors.black12, shape: BoxShape.circle),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.message_rounded,
                 ),
                 onPressed: () {},
@@ -90,7 +89,7 @@ class _TopNavigationState extends State<TopNavigation>
           padding: EdgeInsets.zero,
           // indicatorPadding: EdgeInsets.zero,
           labelPadding: EdgeInsets.symmetric(horizontal: width * 0.05),
-          tabs: [
+          tabs: const [
             Tab(icon: Icon(Icons.home)),
             Tab(icon: Icon(Icons.watch)),
             Tab(icon: Icon(Icons.flag)),
@@ -102,7 +101,7 @@ class _TopNavigationState extends State<TopNavigation>
       ),
       body: TabBarView(
         controller: _controller,
-        children: [
+        children: const [
           NewsfeedUI(),
           WatchUI(),
           FlagUI(),
