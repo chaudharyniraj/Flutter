@@ -3,7 +3,6 @@ import 'package:fb_design/Model/PostArguments.dart';
 import 'package:fb_design/Model/StoryArguments.dart';
 import 'package:fb_design/Model/StoryContents.dart';
 import 'package:fb_design/UI/GeneralUI/PostUI.dart';
-import 'package:fb_design/UI/GeneralUI/StoryUI.dart';
 import 'package:flutter/material.dart';
 
 class NewsfeedUI extends StatefulWidget {
@@ -14,122 +13,6 @@ class NewsfeedUI extends StatefulWidget {
 }
 
 class _NewsfeedUIState extends State<NewsfeedUI> {
-  Widget ListofNewsFeed(context, index, width, height) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    '${newsfeedContents[index].profileImage}',
-                    width: width * 0.1,
-                    height: width * 0.1,
-                  ),
-                ),
-              ),
-              Expanded(
-                  flex: 4,
-                  child: Text(
-                    '${newsfeedContents[index].name}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: width * 0.05),
-                  ))
-            ],
-          ),
-        ),
-        Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '${newsfeedContents[index].caption}',
-                style: TextStyle(),
-              ),
-            )),
-        GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/displayPostUI',
-                arguments: PostArguments(
-                    '${newsfeedContents[index].profileImage}',
-                    '${newsfeedContents[index].name}',
-                    '${newsfeedContents[index].image}',
-                    '${newsfeedContents[index].caption}',
-                    '${newsfeedContents[index].likes}',
-                    '${newsfeedContents[index].comments}'));
-          },
-          child: Container(
-              height: height * 0.3,
-              child: Image.asset('${newsfeedContents[index].image}')),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.thumb_up),
-                label: Text('${newsfeedContents[index].comments}')),
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.message),
-                label: Text('${newsfeedContents[index].likes}')),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.thumb_up,
-                ),
-                label: Text('Like')),
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.message,
-                ),
-                label: Text('Comment')),
-            TextButton.icon(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.share,
-                ),
-                label: Text('Share')),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget ListofStories(BuildContext context, int index) {
-    return Stack(
-      children: [
-        Align(
-            alignment: Alignment.center,
-            child: GestureDetector(
-              child: Image.asset('${contents[index].image}'),
-              onTap: () {
-                Navigator.pushNamed(context, '/storyUI',
-                    arguments: StoryArguments(
-                        '${contents[index].name}', '${contents[index].image}'));
-              },
-            )),
-        Align(
-            alignment: Alignment.bottomCenter,
-            child: Text("${contents[index].name}",
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                )))
-      ],
-    );
-  }
-
   @override
   void initState() {
     // TODO: implement initState
@@ -225,7 +108,7 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                 itemBuilder: (context, index) => Container(
                     height: height * 0.25,
                     width: width * 0.25,
-                    margin: EdgeInsets.all(5),
+                    margin: const EdgeInsets.all(5),
                     // color: Colors.grey,
                     child: Container(
                         decoration: BoxDecoration(
@@ -234,21 +117,137 @@ class _NewsfeedUIState extends State<NewsfeedUI> {
                               color: Colors.grey,
                             ),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(15))),
-                        child: ListofStories(context, index))),
+                                const BorderRadius.all(Radius.circular(15))),
+                        child: listofStories(context, index))),
               ),
             ),
             ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: newsfeedContents.length,
               // scrollDirection: Axis.vertical,
               itemBuilder: (context, index) => Container(
-                  child: ListofNewsFeed(context, index, width, height)),
+                  child: listofNewsFeed(context, index, width, height)),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget listofNewsFeed(context, index, width, height) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Image.asset(
+                    newsfeedContents[index].profileImage,
+                    width: width * 0.1,
+                    height: width * 0.1,
+                  ),
+                ),
+              ),
+              Expanded(
+                  flex: 4,
+                  child: Text(
+                    newsfeedContents[index].name,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: width * 0.05),
+                  ))
+            ],
+          ),
+        ),
+        Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                newsfeedContents[index].caption,
+                style: TextStyle(),
+              ),
+            )),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/displayPostUI',
+                arguments: PostArguments(
+                    newsfeedContents[index].profileImage,
+                    newsfeedContents[index].name,
+                    newsfeedContents[index].image,
+                    newsfeedContents[index].caption,
+                    newsfeedContents[index].likes,
+                    newsfeedContents[index].comments));
+          },
+          child: Container(
+              height: height * 0.3,
+              child: Image.asset(newsfeedContents[index].image)),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.thumb_up),
+                label: Text(newsfeedContents[index].comments)),
+            TextButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.message),
+                label: Text(newsfeedContents[index].likes)),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TextButton.icon(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.thumb_up,
+                ),
+                label: Text('Like')),
+            TextButton.icon(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.message,
+                ),
+                label: Text('Comment')),
+            TextButton.icon(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.share,
+                ),
+                label: Text('Share')),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget listofStories(BuildContext context, int index) {
+    return Stack(
+      children: [
+        Align(
+            alignment: Alignment.center,
+            child: GestureDetector(
+              child: Image.asset(contents[index].image),
+              onTap: () {
+                Navigator.pushNamed(context, '/storyUI',
+                    arguments: StoryArguments(
+                        contents[index].name, contents[index].image));
+              },
+            )),
+        Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(contents[index].name,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                )))
+      ],
     );
   }
 }

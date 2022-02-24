@@ -24,7 +24,7 @@ class _DisplayPostUIState extends State<DisplayPostUI> {
               height: height * 0.98,
               width: width,
               child: Image.asset(
-                '${arguments.image}',
+                arguments.image,
                 fit: BoxFit.fitWidth,
               ),
             ),
@@ -39,13 +39,13 @@ class _DisplayPostUIState extends State<DisplayPostUI> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${arguments.name}'),
-                    Text('${arguments.caption}'),
+                    Text(arguments.name),
+                    Text(arguments.caption),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('${arguments.likes}'),
-                        Text('${arguments.comments}'),
+                        Text(arguments.likes),
+                        Text(arguments.comments),
                       ],
                     )
                   ]),

@@ -108,7 +108,7 @@ class _TopNavigationState extends State<TopNavigation>
           FlagUI(),
           GamingUI(),
           NotificationUI(),
-          MenuUI()
+          MenuUI(),
         ],
       ),
     );
