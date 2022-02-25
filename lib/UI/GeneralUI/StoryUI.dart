@@ -31,31 +31,38 @@ class _StoryUIState extends State<StoryUI> {
       child: Scaffold(
         body: Stack(
           children: [
-            Container(
-              height: height * 0.98,
-              width: width,
-              child: Image.asset(
-                '${args.image}',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            Row(
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.arrow_back)),
-                Text(
-                  '${args.name}',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: width * 0.05),
-                ),
-              ],
-            )
+            image(context, height, width, args),
+            nameField(context, height, width, args)
           ],
         ),
       ),
+    );
+  }
+
+  Widget image(context, height, width, args) {
+    return Container(
+      height: height * 0.98,
+      width: width,
+      child: Image.asset(
+        args.image,
+        fit: BoxFit.fitWidth,
+      ),
+    );
+  }
+
+  Widget nameField(context, height, width, args) {
+    return Row(
+      children: [
+        IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
+        Text(
+          args.name,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: width * 0.05),
+        ),
+      ],
     );
   }
 }
